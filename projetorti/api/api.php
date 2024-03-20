@@ -13,7 +13,7 @@
                     file_put_contents('sensores/'.$_POST['nome'].'/log.txt',$_POST['nome'] .','. date(' d/m/Y h:i:s ', time()) .','. $_POST['valor'].PHP_EOL,FILE_APPEND);
 					file_put_contents('sensores/'.$_POST['nome'].'/data.txt', date(' d/m/Y h:i:s ', time()));}
                                         
-                    echo("POST foi reconhecido!");
+                    echo("Foi recebido um POST!");
 		}
 	
 			
