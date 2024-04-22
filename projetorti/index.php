@@ -1,48 +1,65 @@
+<?php
+$username = "ti";
+//password = 123
+$password_hash = '$2y$10$6A5OloLBqrZmqX8Wdn6eK.lTTNBd5OH9zeUEXOqIhkVC7QKgpzmjG';
 
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    if ($_POST['username'] === $username && password_verify($_POST['password'], $password_hash)) {
+        //echo "Password correta!";
+        session_start();
+        $_SESSION['username'] = $_POST['username'];
+        header('Location: dashboard.php');
+    } else {
+        echo "Invalid username or password!";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-     <!-- Link css-->
-     <link rel="stylesheet" href="css/style.css">
-    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Link css-->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Login</title>
 </head>
+
 <body>
 
-<section>
- <div class="container">
-    <div class="card text-center"><br>
+    <section>
+        <div class="container">
+            <div class="card text-center"><br>
 
-    <div class="card-body">
-        <h2 class="card-title">Bem Vindo!</h2><br>
-        
-        <div class="input-group flex-nowrap">
+                <div class="card-body">
+                    <h2 class="card-title">Bem Vindo!</h2><br>
 
-        <form method="post" action="dashboard.php">
+                    <div class="input-group flex-nowrap">
 
-        <input type="text" class="form-control" placeholder="username" aria-label="username" aria-describedby="addon-wrapping">
-        </div><br>
+                        <form method="post" action="dashboard.php">
 
-        <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
-        </div><br>
-        <input type="submit" value="Login">
+                            <input type="text" class="form-control" placeholder="username" aria-label="username" aria-describedby="addon-wrapping">
+                    </div><br>
 
-        </form>
-    </div>
-    </div>
- </div>
-</section>
+                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                </div><br>
+                <input type="submit" value="Login">
+
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
 
 
 
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -50,4 +67,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
+
 </html>
